@@ -23,7 +23,7 @@
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
             <header class="mb-8 flex items-center justify-center border-b py-4 md:mb-12 md:py-8 xl:mb-16">
                 <!-- logo - start -->
-                <a href="/" class="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl" aria-label="logo">
+                <a href="/" class="inline-flex items-center gap-2.5 text-xl font-bold text-black md:text-2xl" aria-label="logo">
                     <img src="logo.png" alt="Himpunan Mahasiswa Profesi Teknik Kimia" class="h-8 w-auto md:h-10" />
                     Himpunan Mahasiswa Profesi Teknik Kimia
                 </a>
@@ -116,9 +116,9 @@
                 eventColor: '#2563EB',
                 eventTextColor: '#FFFFFF',
                 headerToolbar: {
-                    left: 'prev,next today',
+                    left: 'prev,next',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    right: 'dayGridMonth'
                 }
             });
             calendar.render();
