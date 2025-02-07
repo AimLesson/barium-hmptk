@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kalender Barium</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="BARIUM adalah Kalender Prestasi untuk mahasiswa Teknik Kimia yang memuat info LKTIN, Essay, Poster, Conference, Seminar Nasional, dan lainnya.">
+    <meta name="keywords" content="Kalender Mahasiswa, LKTIN, Seminar, Teknik Kimia, Kompetisi Mahasiswa, Call for Papers, Workshop, Pelatihan, ISO, K3">
+    <meta name="author" content="Himpunan Mahasiswa Profesi Teknik Kimia">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Kalender Barium - Kabar Riset Seputar Mahasiswa">
+    <meta property="og:description" content="Temukan informasi lomba, seminar, dan pelatihan terkini untuk mahasiswa Teknik Kimia di Kalender BARIUM.">
+    <meta property="og:image" content="/logo.png"> 
+    <meta property="og:url" content="https://barium.aimlesson.online"> 
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kalender Barium - Kabar Riset Seputar Mahasiswa">
+    <meta name="twitter:description" content="Informasi lomba, seminar, dan pelatihan terkini untuk mahasiswa Teknik Kimia.">
+    <meta name="twitter:image" content="/logo.png"> 
+    
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
