@@ -64,6 +64,23 @@ $events = Event::get();
 
 
     <style>
+        /* Keyframes for slow reveal animation */
+        @keyframes slowReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation class */
+        .animate-slow-reveal {
+            animation: slowReveal 1s ease-out;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -81,7 +98,7 @@ $events = Event::get();
     </style>
 </head>
 
-<body class="bg-gradient-to-r from-cyan-200 to-cyan-500 pb-6 sm:pb-8 lg:pb-12 mx-auto max-w-screen-2xl px-4 md:px-8">
+<body class="bg-gradient-to-r from-cyan-200 to-cyan-500 pb-6 sm:pb-8 lg:pb-12 mx-auto max-w-screen-2xl px-4 md:px-8 animate-slow-reveal">
 
     {{-- Navbar --}}
     <header class="mb-8 flex items-center justify-center border-b md:mb-12 xl:mb-16">
@@ -107,15 +124,14 @@ $events = Event::get();
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-2.5 sm:justify-center lg:justify-start">
-                    <a href="#"
-                        class="inline-block rounded-lg bg-gray-800 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-indigo-600 md:text-base">
-                        Show Calendar
-                    </a>
 
-                    <a href="#"
-                        class="inline-block rounded-lg bg-teal-900 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-teal-700 md:text-base">
+                    <button onclick="scrollToSection('calendarSection')" class="inline-block rounded-lg bg-gray-800 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-indigo-600 md:text-base">
+                        Show Calendar
+                    </button>
+
+                    <button onclick="scrollToSection('eventSection')" class="inline-block rounded-lg bg-teal-900 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-teal-700 md:text-base">
                         Show Event
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -168,7 +184,7 @@ $events = Event::get();
     {{-- Monthly section --}}
     <section class="text-gray-600 body-font">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-10 md:mb-0">
+            <div id="calendarSection" class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-10 md:mb-0">
                 <h1 class="sm:text-4xl text-3xl text-center uppercase mb-4 font-bold text-gray-900">Kalender Kegiatan</h1>
                 <div class="bg-white p-4 rounded-lg">
                     <div id="calendar" class="rounded-lg overflow-hidden text-sm"></div>
@@ -230,8 +246,8 @@ $events = Event::get();
     </section>
 
     {{-- Events section --}}
-    <section>
-        <h1 class="sm:text-4xl text-3xl mb-4 font-bold text-gray-900">Kegiatan Terbaru</h1>
+    <section id="eventSection">
+        <h1 class="sm:text-4xl uppercase text-3xl mb-4 font-semibold text-gray-900">Kegiatan Terbaru</h1>
         <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
             <?php foreach ($events as $event): ?>
             <div class="flex flex-col overflow-hidden rounded-lg bg-white shadow-md p-4">
@@ -274,6 +290,13 @@ $events = Event::get();
             <?php endforeach; ?>
         </div>
     </section>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
