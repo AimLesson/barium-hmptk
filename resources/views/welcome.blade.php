@@ -70,6 +70,7 @@ $events = Event::get();
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -94,11 +95,11 @@ $events = Event::get();
             width: 100%;
             max-width: 100vw;
         }
-
     </style>
 </head>
 
-<body class="bg-gradient-to-r from-cyan-200 to-cyan-500 pb-6 sm:pb-8 lg:pb-12 mx-auto max-w-screen-2xl px-4 md:px-8 animate-slow-reveal">
+<body
+    class="bg-gradient-to-r from-cyan-200 to-cyan-500 pb-6 sm:pb-8 lg:pb-12 mx-auto max-w-screen-2xl px-4 md:px-8 animate-slow-reveal">
 
     {{-- Navbar --}}
     <header class="mb-8 flex items-center justify-center border-b md:mb-12 xl:mb-16">
@@ -125,11 +126,13 @@ $events = Event::get();
 
                 <div class="flex flex-col sm:flex-row gap-2.5 sm:justify-center lg:justify-start">
 
-                    <button onclick="scrollToSection('calendarSection')" class="inline-block rounded-lg bg-gray-800 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-indigo-600 md:text-base">
+                    <button onclick="scrollToSection('calendarSection')"
+                        class="inline-block rounded-lg bg-gray-800 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-indigo-600 md:text-base">
                         Show Calendar
                     </button>
 
-                    <button onclick="scrollToSection('eventSection')" class="inline-block rounded-lg bg-teal-900 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-teal-700 md:text-base">
+                    <button onclick="scrollToSection('eventSection')"
+                        class="inline-block rounded-lg bg-teal-900 px-6 py-3 text-center text-sm font-semibold text-white transition duration-100 hover:bg-teal-700 md:text-base">
                         Show Event
                     </button>
                 </div>
@@ -185,7 +188,8 @@ $events = Event::get();
     <section class="text-gray-600 body-font">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
             <div id="calendarSection" class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-10 md:mb-0">
-                <h1 class="sm:text-4xl text-3xl text-center uppercase mb-4 font-bold text-gray-900">Kalender Kegiatan</h1>
+                <h1 class="sm:text-4xl text-3xl text-center uppercase mb-4 font-bold text-gray-900">Kalender Kegiatan
+                </h1>
                 <div class="bg-white p-4 rounded-lg">
                     <div id="calendar" class="rounded-lg overflow-hidden text-sm"></div>
                 </div>
@@ -265,6 +269,10 @@ $events = Event::get();
                         </a>
                     </h2>
 
+                    <p class="mb-2 text-gray-500">
+                        <?= $event->keterangan ?>
+                    </p>
+
                     <p class="mb-4 text-gray-500">
                         <strong>Deadline :</strong>
                         <?= date('F j, Y', strtotime($event->date)) ?><br>
@@ -291,12 +299,26 @@ $events = Event::get();
         </div>
     </section>
 
+    <footer class="text-gray-600 body-font mt-8 bg-white rounded-lg">
+        <div class="container px-5 py-4 mx-auto flex flex-col items-center">
+          <a class="flex title-font font-medium items-center justify-center text-gray-900">
+            <img src="logo.png" alt="Himpunan Mahasiswa Profesi Teknik Kimia" class="h-12 md:h-12 w-auto" />
+            <span class="ml-3 text-xl">Kalender Barium</span>
+          </a>
+          <p class="text-sm text-gray-500 mt-4 text-center">© 2025 Kalender Barium | Developed by 
+            <a href="https://www.instagram.com/gerson.m5/" class="text-gray-900 ml-1" rel="noopener noreferrer" target="_blank">@gerson.m5</a> | Open for website development projects & freelance work |
+            <a href="https://wa.me/6285156106221" target="_blank" class="text-green-500 hover:underline">Contact via WhatsApp</a>
+          </p>
+        </div>
+      </footer>
+    
+
     <script>
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-    
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -352,16 +374,16 @@ $events = Event::get();
                 clickable: true,
             },
             breakpoints: {
-                0: { 
-                    slidesPerView: 1 
+                0: {
+                    slidesPerView: 1
                 },
-                768: { 
-                    slidesPerView: 2 
+                768: {
+                    slidesPerView: 2
                 }
             }
         });
     </script>
-    
+
 </body>
 
 </html>

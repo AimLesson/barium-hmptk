@@ -16,7 +16,8 @@ class Event extends Model
         'date',
         'price',
         'link_info',
-        'link_reg'
+        'link_reg',
+        'keterangan',
     ];
 
     // Optionally, if you need to cast attributes to specific data types

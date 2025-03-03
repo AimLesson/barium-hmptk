@@ -44,6 +44,9 @@ class EventsResource extends Resource
                     ->label('Link Registrasi')
                     ->url()
                     ->nullable(),
+                Forms\Components\RichEditor::make('content')
+                    ->required()
+                    ->maxLength(65535),
             ]);
     }
 
